@@ -39,6 +39,19 @@ public class MyStack{
             Push(temp.Pop());
         return count;
     }
+    public object Peek(){
+        /*object t = Pop();
+        Push(t);
+        return t;*/
+        return top.data;
+    }
+    public void Reverse(){
+        List<object> list = new List<object>();
+        while(!IsEmpty())
+            list.Add(Pop());
+        for(int i=0; i<list.Count; i++)
+            Push(list[i]);
+    }
 }
 public class Program
 {
@@ -53,8 +66,11 @@ public class Program
         //int v = (int)stack.Pop();
         Console.WriteLine(stack.Count());
         Console.WriteLine(stack.count);
+        Console.WriteLine("Peek: " + stack.Peek());
+        stack.Reverse();
 
-        //Stack st = new Stack();
+        Stack st = new Stack();
+        //st.Peek
         
     }
 }
