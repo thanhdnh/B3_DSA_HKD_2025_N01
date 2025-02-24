@@ -131,7 +131,9 @@ public class Program
 
         Stack st = new Stack();
         Stack<int> stint = new Stack<int>();
-        //st.Peek
+        
+        Queue q = new Queue();
+        Queue<int> qint = new Queue<int>();
 
     }
 }
