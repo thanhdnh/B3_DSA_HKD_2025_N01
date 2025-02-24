@@ -29,7 +29,8 @@ public class MyStack
         }
         object data = top.data;
         top = top.next;
-        count--;
+        if(count>=0)
+            count--;
         return data;
     }
     public int Count()
@@ -72,6 +73,8 @@ public class Node2
 public class MyQueue
 {
     Node2 rear, front;
+    public int count = 0;
+
     public bool IsEmpty()
     {
         return rear == null || front == null;
@@ -89,6 +92,7 @@ public class MyQueue
             rear.prev = n;
             n.next = rear; rear = n;
         }
+        count++;
     }
     public Node2 Dequeue()
     {
@@ -99,8 +103,14 @@ public class MyQueue
             rear = null;
         else
             front.next = null;
+        if(count>=0)
+            count--;
         return d;
     }
+    public object Peek(){
+        return front.data;
+    }
+    //Bổ sung các phương thức: Reverse, Sort, Clear, Contains, Remove.
 }
 
 public class Program
