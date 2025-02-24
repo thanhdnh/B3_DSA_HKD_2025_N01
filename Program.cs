@@ -1,24 +1,30 @@
 using System.Collections;
 
-public class Node{
+public class Node
+{
     public object data;
-    public Node next;  
+    public Node next;
 }
-public class MyStack{
+public class MyStack
+{
     Node top;
     public int count = 0;
-    public bool IsEmpty(){
+    public bool IsEmpty()
+    {
         return top == null;
     }
-    public void Push(object data){
+    public void Push(object data)
+    {
         Node newNode = new Node();
         newNode.data = data;
         newNode.next = top;
         top = newNode;
         count++;
     }
-    public object Pop(){
-        if(IsEmpty()){
+    public object Pop()
+    {
+        if (IsEmpty())
+        {
             return null;
         }
         object data = top.data;
@@ -26,34 +32,77 @@ public class MyStack{
         count--;
         return data;
     }
-    public int Count(){
+    public int Count()
+    {
         int count = 0;
         MyStack temp = new MyStack();
         object ob = (int)Pop();
-        while(ob!=null){
+        while (ob != null)
+        {
             temp.Push(ob);
             count++;
             ob = Pop();
         }
-        while(!temp.IsEmpty())
+        while (!temp.IsEmpty())
             Push(temp.Pop());
         return count;
     }
-    public object Peek(){
+    public object Peek()
+    {
         /*object t = Pop();
         Push(t);
         return t;*/
         return top.data;
     }
-    public void Reverse(){
+    public void Reverse()
+    {
         List<object> list = new List<object>();
-        while(!IsEmpty())
+        while (!IsEmpty())
             list.Add(Pop());
-        for(int i=0; i<list.Count; i++)
+        for (int i = 0; i < list.Count; i++)
             Push(list[i]);
     }
     //Bổ sung các phương thức: Sort, Clear, Contains, Remove.
 }
+public class Node2
+{
+    public Node2 prev, next;
+    public object data;
+}
+public class MyQueue
+{
+    Node2 rear, front;
+    public bool IsEmpty()
+    {
+        return rear == null || front == null;
+    }
+    public void Enqueue(object ele)
+    {
+        Node2 n = new Node2();
+        n.data = ele;
+        if (rear == null)
+        {
+            rear = n; front = n;
+        }
+        else
+        {
+            rear.prev = n;
+            n.next = rear; rear = n;
+        }
+    }
+    public Node2 Dequeue()
+    {
+        if (front == null) return null;
+        Node2 d = front;
+        front = front.prev;
+        if (front == null)
+            rear = null;
+        else
+            front.next = null;
+        return d;
+    }
+}
+
 public class Program
 {
     public static void Main(string[] args)
@@ -73,6 +122,6 @@ public class Program
         Stack st = new Stack();
         Stack<int> stint = new Stack<int>();
         //st.Peek
-        
+
     }
 }
