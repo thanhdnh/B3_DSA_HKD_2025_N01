@@ -52,6 +52,7 @@ public class MyStack{
         for(int i=0; i<list.Count; i++)
             Push(list[i]);
     }
+    //Bổ sung các phương thức: Sort, Clear, Contains, Remove.
 }
 public class Program
 {
@@ -70,6 +71,7 @@ public class Program
         stack.Reverse();
 
         Stack st = new Stack();
+        Stack<int> stint = new Stack<int>();
         //st.Peek
         
     }
